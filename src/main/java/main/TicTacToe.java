@@ -8,12 +8,52 @@ public static int[][] ticbox;
 		//check all rows
 		//loop through rows from 0 to 3 and check if all the 3 places have same marks
  		
-		
-		//check all cols
+				//check all cols
 		//loop through columns from 0 to 3 and check if all the 3 places have same marks
  		
-		//check both diagonals 
+		int i;int j;
+		boolean found=true;
+		for( i=0;i<2;i++) {
+			for( j=0;j<2 ;j++) {
+				if(tic[i][j]!=tic[i][j+1]) {
+					found=false;
+				}
+			
+			}
+			if(found && tic[i][j-1]!=0) {
+				return tic[i][j-1];
+			}
+		}
+		found=true;
+		for( i=0;i<2;i++) {
+			for( j=0;j<2 ;j++) {
+				if(tic[j][i]!=tic[j+1][i]) {
+					found=false;
+				}
+			
+			}
+			if(found && tic[j-1][i]!=0) {
+				return tic[j-1][i];
+			}
+		}
 		
+		found=true;
+		for(i=0;i<1 && found==true;i++) {
+			if(tic[i][i]!=tic[i+1][i+1]) {
+				found=false;
+			}
+			
+			
+		}
+		if(found) {
+			return tic[i-1][i-1];
+		}
+		
+		
+		
+		//check both diagonals 
+	
+
 		
 		
 		//write your code here !!!
@@ -38,7 +78,14 @@ public static int[][] ticbox;
 		//check if the selected box is empty ie, already not marked by other player
 		//if all checks passed return true.
 		
-		
+		if(a1>=0 && a1<3) {
+			if(a2>=0 && a2<=3) {
+				if(tic[a1][a2]==0) {
+					return true;
+				}
+			}
+			
+		}
 		//Write your code here !!!
 		
 		
